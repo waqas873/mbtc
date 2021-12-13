@@ -79,7 +79,7 @@ class Publicsite extends CI_Controller
 			$this->form_validation->set_rules('cpassword', 'Confirm Password', 'required|matches[password]');
 			$this->form_validation->set_rules('gender', 'Gender', 'required');
 			$this->form_validation->set_rules('position', 'position', 'required');
-			$this->form_validation->set_rules('country', 'country', 'required');
+			// $this->form_validation->set_rules('country', 'country', 'required');
 			//$this->form_validation->set_rules('wallet_address', 'Wallet Address', 'required|alpha_numeric|min_length[25]|max_length[34]');
 			$this->form_validation->set_rules('sponsor_code', 'Sponsor Code', 'required|callback_is_sponsor_code');
 			$this->form_validation->set_rules('contact_no', 'contact no', 'required|min_length[8]|max_length[25]');

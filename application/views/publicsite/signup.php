@@ -133,7 +133,7 @@
                         <button class="btn btn-gradient-orange btn-glow rounded-circle subscribe-btn"><!-- <i class="ti-angle-right"></i> --></button>
                       </div>
                       <?php echo form_error('contact_no');?>
-                      <div>
+                      <!-- <div>
                         <select class="form-control animated subscribe-text" data-animation="fadeInUpShorter" data-animation-delay="0.8s" name="country">
                           <option value="">Select Country</option>
                           <?php
@@ -144,7 +144,7 @@
                           <?php } } ?>
                         </select>
                         <button class="btn btn-gradient-orange btn-glow rounded-circle subscribe-btn"></button>
-                      </div>
+                      </div> -->
                       <?php echo form_error('country');?>
 
                       <div>
