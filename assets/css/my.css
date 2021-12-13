@@ -1,0 +1,108 @@
+
+
+
+.i_c1 .wallet_box{
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.i_c1 .wallet_box img{
+	width:260px;
+}
+
+.i_c1 .wallet_box .box_text_box{
+	position: absolute;
+    top: 64px;
+    left: 34px;
+    width: 200px;
+    text-align: center;
+    height: 180px;
+}
+
+.i_c1 .wallet_box .box_text_box h1{
+      font-size: 40px;
+}
+
+.i_c1 .wallet_box .box_text_box p{
+	
+  font-size: 20px;
+}
+
+
+@media(max-width: 1920px){
+	.i_c1 .wallet_box{
+		margin-left: 18%;
+		margin-bottom: 20px;
+	}
+}
+
+
+@media(max-width: 1600px){
+   .i_c1 .wallet_box{
+		margin-left: 12%;
+	}
+}
+
+
+
+@media(max-width: 1350px){
+   .i_c1 .wallet_box{
+		margin-left: 8%;
+	}
+}
+
+
+@media(max-width: 1200px){
+   .i_c1 .wallet_box{
+		margin-left: 4%;
+	}
+}
+
+
+@media(max-width: 767px){
+   .i_c1 .wallet_box{
+		margin-left: 4%;
+	}
+
+	.i_c1 .wallet_box{
+	
+	}
+
+	.i_c1 .wallet_box img{
+	 width:120px;
+    }
+
+    .i_c1 .wallet_box .box_text_box h1 {
+    font-size: 18px;
+    position: relative;
+    top: 15px;
+   }
+
+   .i_c1 .wallet_box .box_text_box p {
+    font-size: 10px;
+   }
+
+   .i_c1 .wallet_box .box_text_box {
+    position: absolute;
+    top: 0px;
+    left: 13px;
+    width: 90px;
+    text-align: center;
+    height: 180px;
+  }
+}
+
+@media(max-width: 580px){
+	.box{margin:auto !important;margin-top:10px !important;}
+	.box2 {margin:auto !important;margin-bottom:10px !important;}
+	.box p,h4{text-align:center !important;}
+	.members h4 {margin-left: 30px !important;}
+	.box_m{margin-bottom: 15px;}
+	.chart {min-height:300px !important; height: 300px !important;}
+	.bitcoin_btn_sb{position: relative;left: 43%;top: 10px;}
+	.box_4 {padding:0px !important;padding-top: 10px;}
+	#custom-colored {top: 20px !important;}
+	.mr_top{margin-top:10px !important;}
+	.mr_bottom{margin-bottom:10px !important;}
+}
+
