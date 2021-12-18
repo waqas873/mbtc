@@ -67,10 +67,18 @@
                 <h3 class="card-title">History Details</h3>
               </div>
               <div class="card-body">
-                
+                <form id="deductForm">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div style="margin-bottom: 10px;">
+                      <button type="submit" class="btn btn-info">Deduct Binary Bonus</button> 
+                    </div>
+                  </div>
+                </div>
                 <table id="datatable" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th><input type="checkbox" class="allBoxes"></th>
                     <th>Sr No</th>
                     <th>Name</th>
                     <th>Username</th>
@@ -84,6 +92,9 @@
                         foreach($result as $key=>$value){
                     ?>
                     <tr class="table_text_shadow">
+                      <td>
+                        <input type="checkbox" name="de_ids[]" class="eachBox" value="<?php echo $value['de_id'];?>">
+                      </td>
                       <td class="text_center"><?php echo $key+1; ?></td>
                       <td class="text_center"><?php echo $value['fullname']; ?></td>
                       <td class="text_center"><?php echo $value['username']; ?></td>
@@ -93,7 +104,7 @@
                     <?php } } ?>
                   </tbody>
                 </table>
-
+                </form>
               </div>
               <!-- /.card-body -->
             </div>
@@ -155,5 +166,46 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('#datatable').DataTable({});
+
+  $(document).on('submit', '#deductForm', function (e) {
+    e.preventDefault();
+    if(!$('.eachBox').is(':checked')){
+      swal({
+        title: "Warning!",
+        text: "Please select amounts which are to be deducted.",
+        icon: "error",
+        button: "OK",
+      });
+      return false;
+    }
+    $.LoadingOverlay("show");
+    var formData = $("#deductForm").serializeArray();
+    $.ajax({
+      url: base_url + "histories/process_deduct",
+      type: "POST",
+      dataType: 'json',
+      data:{'de_ids':formData},
+      success: function (data) {
+          if(data.response){
+            swal("Amount has been deducted successfully.")
+              .then((value) => {
+                location.reload(); 
+            });
+          }
+          else{
+            swal({
+              title: "Warning!",
+              text: data.msg,
+              icon: "error",
+              button: "OK",
+            });
+          }
+      },
+      complete: function(){
+        $.LoadingOverlay("hide");
+      }
+    });
+});
+
 });
 </script>

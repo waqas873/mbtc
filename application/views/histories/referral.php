@@ -67,10 +67,18 @@
                 <h3 class="card-title">History Details</h3>
               </div>
               <div class="card-body">
-                
+                <form id="deductForm">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div style="margin-bottom: 10px;">
+                      <button type="submit" class="btn btn-info">Deduct Referral Bonus</button> 
+                    </div>
+                  </div>
+                </div>
                 <table id="datatable" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th><input type="checkbox" class="allBoxes"></th>
                     <th>Sr No</th>
                     <th>Name</th>
                     <th>Username</th>
@@ -84,6 +92,9 @@
                         foreach($result as $key=>$value){
                     ?>
                     <tr class="table_text_shadow">
+                      <td>
+                        <input type="checkbox" name="de_ids[]" class="eachBox" value="<?php echo $value['de_id'];?>">
+                      </td>
                       <td class="text_center"><?php echo $key+1; ?></td>
                       <td class="text_center"><?php echo $value['fullname']; ?></td>
                       <td class="text_center"><?php echo $value['username']; ?></td>
@@ -93,7 +104,7 @@
                     <?php } } ?>
                   </tbody>
                 </table>
-
+                </form>
               </div>
               <!-- /.card-body -->
             </div>
@@ -105,55 +116,50 @@
 </section>
 <!-- /.content -->
 
-<!-- <div class="modal fade" id="addModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Add <?php echo $this->title;?></h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form id="addForm">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="first_name">First Name</label>
-                  <input type="text" name="first_name" class="form-control first_name" placeholder="First Name">
-                  <div class="all_errors first_name_error"></div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="last_name">Last Name</label>
-                  <input type="text" name="last_name" class="form-control last_name" placeholder="Last Name">
-                  <div class="all_errors last_name_error"></div>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="email">Email</label>
-                  <input type="email" name="email" class="form-control email" placeholder="First Name">
-                  <div class="all_errors email_error"></div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="status">Status</label>
-                  <select class="form-control status select2" name="status">
-                      <option value="1">Active</option>
-                      <option value="2">Inactive</option>
-                  </select>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-info">Save Data</button>
-            </form>
-        </div>
-        <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-</div> -->
-
 <script type="text/javascript">
 $(document).ready(function(){
-    $('#datatable').DataTable({});
+
+$('#datatable').DataTable({});
+
+$(document).on('submit', '#deductForm', function (e) {
+    e.preventDefault();
+    if(!$('.eachBox').is(':checked')){
+      swal({
+        title: "Warning!",
+        text: "Please select amounts which are to be deducted.",
+        icon: "error",
+        button: "OK",
+      });
+      return false;
+    }
+    $.LoadingOverlay("show");
+    var formData = $("#deductForm").serializeArray();
+    $.ajax({
+      url: base_url + "histories/process_deduct",
+      type: "POST",
+      dataType: 'json',
+      data:{'de_ids':formData},
+      success: function (data) {
+          if(data.response){
+            swal("Amount has been deducted successfully.")
+              .then((value) => {
+                location.reload(); 
+            });
+          }
+          else{
+            swal({
+              title: "Warning!",
+              text: data.msg,
+              icon: "error",
+              button: "OK",
+            });
+          }
+      },
+      complete: function(){
+        $.LoadingOverlay("hide");
+      }
+    });
+});
+
 });
 </script>

@@ -482,6 +482,16 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $('.select2').select2();
+
+  $(document).on('click', '.allBoxes', function (e) {
+    if($('.allBoxes').is(':checked')){
+      $('.eachBox').prop('checked', true);
+    }
+    else{
+      $('.eachBox').prop('checked', false);
+    }
+  });
+
 });
 
 function delete_record(obj, controller) {

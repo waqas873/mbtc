@@ -106,8 +106,8 @@ class User extends CI_Controller {
         $user_package = package_amount($user_id);
         $data['total_investment'] = (!empty($user_package))?number_format($user_package,2):0;
 
-        $where = "te_user_id = '".$user_id."'";
-        $result = $this->total_earnings->get_where('SUM(te_amount) as te_amount', $where, true, '', '', '');
+        $where = "de_user_id = '".$user_id."'";
+        $result = $this->daily_earnings->get_where('SUM(de_earning) as te_amount', $where, true, '', '', '');
         $data['total_earnings'] = ($result[0]['te_amount']>0)?number_format($result[0]['te_amount'],2):0;
 
         $data['user_balance'] = number_format(user_balance($user_id),2);
