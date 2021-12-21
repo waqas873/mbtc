@@ -150,16 +150,16 @@ class Withdraws extends CI_Controller
 					$date1= strtotime($date1);
 					$no_of_hours = round(abs($today-$date1)/60/60);
 
-                    if($no_of_hours >= 72){
+                    if($no_of_hours >= 24){
                         $data['user_id'] = $user_id;
 		            	$data['withdraw_amount'] = $withdraw_amount;
 		            	$data['withdraw_fees'] = ((WITHDRAW_FEE/100)*$withdraw_amount);
 		            	$data['requested_on'] = date('Y-m-d H:i:s');
 		            	$this->withdraws->save($data);
-		            	$this->session->set_flashdata('success_message', 'Your request under review.Maximum time 48 hours.');
+		            	$this->session->set_flashdata('success_message', 'Your request under review.Maximum time 24 hours.');
                     }
                     else{
-                    	$remaining_hours = 72 - $no_of_hours;
+                    	$remaining_hours = 24 - $no_of_hours;
                     	$this->session->set_flashdata('error_message', "You can make your next withdraw request after ".$remaining_hours." hours.");
                     }
                     redirect('withdraws/index/');
