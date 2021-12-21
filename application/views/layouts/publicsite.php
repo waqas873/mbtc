@@ -4,11 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="Crypto ICO is a responsive modern &amp; clean cryptocurrency website landing page html with admin dashboard template , specially created for ICO Startup agencies and digital crypto currency investment website.">
-    <meta name="keywords" content="crypto, ico, cryptocurrency, bitcoin, landing, admin, dashboard, template, modern, clean, responsive">
+    <meta name="description" content="Mega Bussiness of Trading Companies is a responsive modern &amp; clean cryptocurrency website , specially created for MBTC Startup agencies and digital crypto currency investment website.">
+    <!-- <meta name="keywords" content="crypto, ico, cryptocurrency, bitcoin, landing, admin, dashboard, template, modern, clean, responsive"> -->
     <meta name="author" content="PIXINVENT">
     <base href="<?php echo base_url();?>">
-    <title>Crypto ICO - Cryptocurrency Website Landing Page HTML Template</title>
+    <title>Mega Bussiness of Trading Companies</title>
     <link rel="apple-touch-icon" href="assets/public/theme-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/public/theme-assets/images/ico/favicon.ico">
     <!--Google Fonts-->

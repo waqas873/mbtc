@@ -145,6 +145,7 @@
                             <?php } else { ?>
                             <a href="<?php echo base_url("users/block_user/").$user['id']; ?>" class="btn btn-danger btn-sm border_radius" onclick="delete_record(this, 'users'); return false;">Block</a>
                             <?php } ?>
+                            </br><a href="javascript::" class="btn btn-success btn-sm border_radius update_id_btn" style="margin-top: 3px;" rel="<?php echo $user['id']; ?>">Edit</a>
                         </td>
                     </tr>
                     <?php 
@@ -225,8 +226,108 @@
     </div>
 </div>
 
+<div class="modal fade" id="updateModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Update User</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form id="updateForm">
+              <input type="hidden" name="id" id="update_user_id">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="fullname">Full Name</label>
+                  <input type="text" name="fullname" class="form-control fullname" placeholder="Enter full name">
+                  <div class="all_errors fullname_error"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="email">Email</label>
+                  <input type="text" name="email" class="form-control email" placeholder="Enter full name">
+                  <div class="all_errors email_error"></div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info">Save Data</button>
+            </form>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
 <script type="text/javascript">
 $(document).ready(function(){
+
+$(document).on('click', '.update_id_btn', function (e) {
+    e.preventDefault();
+    $.LoadingOverlay("show");
+    var id = $(this).attr("rel");
+    if(id==''){
+      return false;
+    }
+    $('.all_errors').empty();
+    $.ajax({
+        url: base_url + "users/update/"+id,
+        type: "GET",
+        dataType: 'json',
+        success: function (data) {
+          if(data.response){
+            $('#updateForm').trigger("reset");
+            $('#update_user_id').val(data.result.id);
+            $('.fullname').val(data.result.fullname);
+            $('.email').val(data.result.email);
+            // $.each(data.deal_products, function( key, value ) {
+            //   $('.product_id').val(data.deal_products).change();
+            // });
+            $('#updateModal').modal("show");
+          }
+        },
+        complete: function(){
+          $.LoadingOverlay("hide");
+        }
+    });
+    return false;
+});
+
+$(document).on('submit', '#updateForm', function (e) {
+    e.preventDefault();
+    $.LoadingOverlay("show");
+    var obj = $(this);
+    $('.all_errors').empty();
+    $.ajax({
+        url: base_url + "users/process_update",
+        type: "POST",
+        dataType: 'json',
+        data: new FormData(this),
+        processData: false, 
+        contentType: false,
+        success: function (data) {
+            if(data.response){
+                swal("Data has been updated successfully.")
+                .then((value) => {
+                  location.reload(); 
+                });
+            }
+            else{
+                if(data.image_error!=''){
+                  $('.image_error').html(data.image_error);
+                }
+                else{
+                  errors(data.errors);
+                }
+            }
+        },
+        complete: function(){
+          $.LoadingOverlay("hide");
+        }
+    });
+    return false;
+});
 
 $(document).on('click', '.transfer_user_id', function (e){
   var user_id = $(this).attr("rel");

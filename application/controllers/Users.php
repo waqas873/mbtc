@@ -170,6 +170,74 @@ class Users extends CI_Controller
         echo json_encode($data);
     }
 
+    public function update($id = 0)
+    {
+        $this->layout = " ";
+        $data = [];
+        if(!$this->input->is_ajax_request()){
+            exit;
+        }
+        $data['response'] = false;
+        $where = "id = '".$id."'";
+        $result = $this->users->get_where('*', $where, true, '' , '', '');
+        if(!empty($result)){
+            $data['response'] = true;
+            $data['result'] = $result[0];
+        }
+        echo json_encode($data);
+    }
+
+    public function process_update()
+    {
+        $data = [];
+        $this->layout = " ";
+        if(!$this->input->is_ajax_request()){
+            exit('No direct script access allowed');
+        }
+        $data['response'] = false;
+        $data['image_error'] = '';
+        $id = $this->input->post('id');
+        $this->form_validation->set_rules('fullname','full name','required|trim');
+        $this->form_validation->set_rules('email','email','required|trim|valid_email');
+        if($this->form_validation->run()===TRUE){
+            $formData = $this->input->post();
+            $id = $formData['id'];
+            unset($formData['id']);
+
+            if(!empty($_FILES['image']['tmp_name']))
+            {
+                if( !is_dir(BASEPATH.'../assets/uploads') ){
+                    mkdir('./assets/uploads', 0777, true) ;
+                }
+                $config['upload_path']   = BASEPATH.'../assets/images/';
+                $config['allowed_types'] = 'jpg|png|jpeg';
+                $config['max_size']      = 10000;
+                $config['max_width']     = 40000;
+                $config['max_height']    = 40000;
+                $this->load->library('upload',$config);
+                $this->load->initialize($config);
+                if(!$this->upload->do_upload('image')){
+                    $error = array('error' => $this->upload->display_errors());
+                    $text = str_ireplace('<p>','',$error['error']);
+                    $text = str_ireplace('</p>','',$text);
+                    $data['image_error'] = $text;
+                }
+                else{
+                    $uploaded_image = $this->upload->data();
+                    $formData['image'] = $uploaded_image['file_name'];
+                }
+            }
+            if(empty($data['image_error'])){
+                $this->users->update_by('id',$id,$formData);
+                $data['response'] = true;
+            }
+        }
+        else{
+            $data['errors'] = all_errors($this->form_validation->error_array());
+        }
+        echo json_encode($data);
+    }
+
 	public function user_detail($user_id = '' , $random = '')
 	{
 		if(!ctype_digit($user_id) || empty($user_id)){
