@@ -396,6 +396,7 @@ function total_earnings($user_id,$amount){
         $arr = array('te_user_id'=>$user_id,'te_amount'=>$amount);
         $CI->total_earnings->save($arr);
     }
+    return false;
 }
 
 function deliver_mining($user_id,$amount,$mr_days){

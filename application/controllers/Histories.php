@@ -109,6 +109,62 @@ class Histories extends CI_Controller
         //debug($data['result']);
 		$this->load->view("histories/referral",$data);
 	}
+
+	public function process_deduct()
+    {
+        $data = [];
+        $this->layout = " ";
+        if(!$this->input->is_ajax_request()){
+            exit('No direct script access allowed');
+        }
+        $data['response'] = false;
+        $data['msg'] = '';
+        $formData = $this->input->post();
+        if(empty($formData)){
+            echo json_encode($data); exit;
+        }
+        $ids = $formData['de_ids'];
+        $de_ids = [];
+        foreach($ids as $id){
+            if($id['name']!='de_ids[]'){
+                continue;
+            }
+            array_push($de_ids, $id['value']);
+        }
+        if(empty($de_ids)){
+            echo json_encode($data); exit;
+        }
+        $de_ids_str = implode(",",$de_ids);
+        $where = "de_id IN (".$de_ids_str.")";
+        $users = $this->daily_earnings->get_where('*', $where, true, '' , '', '');
+        $user_id = $users[0]['de_user_id'];
+        foreach($users as $key => $value){
+        	if($value['de_user_id'] != $user_id){
+        		$data['msg'] = "Please select single user to deduct amount.";
+        		echo json_encode($data); exit;
+        	}
+        }
+        $where = "de_id IN (".$de_ids_str.")";
+        $result = $this->daily_earnings->get_where('SUM(de_earning) as de_earning', $where, true, '' , '', '');
+        $de_earning = $result[0]['de_earning'];
+        if($de_earning == 0){
+        	$data['msg'] = 'low earning';
+        	echo json_encode($data); exit;
+        }
+        $user_balance = user_balance($user_id);
+        if($de_earning > $user_balance){
+        	$data['msg'] = 'User has less balance in his earnings wallet.';
+        	echo json_encode($data); exit;
+        }
+        $update = [];
+        $update['user_balance'] = $user_balance - $de_earning;
+        $this->user_balance->update_by('user_id',$user_id,$update);
+        foreach($de_ids as $id){
+        	$this->daily_earnings->delete_by('de_id', $id);
+        }
+        $data['response'] = true;
+        echo json_encode($data);
+    }
 	
 	
 }

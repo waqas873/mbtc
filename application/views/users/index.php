@@ -81,6 +81,7 @@
                     <th>Balance</th>
                     <th>Funds Transfer</th>
                     <th>Detail</th>
+                    <th>Histories</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -126,6 +127,17 @@
                             <a style="text-decoration: none;" href="<?php echo base_url('users/user_detail/'.$user['id'].'/jPh2G6YvqLqU');?>">
                                 <span>Detail</span>
                             </a>
+                        </td>
+                        <td>
+                            <a class="histories" style="text-decoration: none;" href="<?php echo base_url('histories/referral/'.createBase64($user['id']));?>">
+                                <span>Referral</span>
+                            </a></br>
+                            <a class="histories" style="text-decoration: none;" href="<?php echo base_url('histories/binary/'.createBase64($user['id']));?>">
+                                <span>Binary</span>
+                            </a></br>
+                            <a class="histories" style="text-decoration: none;" href="<?php echo base_url('histories/roi/'.createBase64($user['id']));?>">
+                                <span>ROI</span>
+                            </a></br>
                         </td>
                         <td>
                             <?php if($user['status']==0) { ?>
