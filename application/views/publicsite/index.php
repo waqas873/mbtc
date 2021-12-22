@@ -274,7 +274,7 @@
         <div class="container-fluid">
             <div class="container">
                 <div class="dark-bg-heading text-center">
-                    <h6 class="sub-title">Crypto ico App</h6>
+                    <h6 class="sub-title">MBTC App</h6>
                     <h2 class="title">Mobile App</h2>
                     <p class="content-desc animated" data-animation="fadeInUpShorter" data-animation-delay="0.4s">A cryptocurrency wallet stores the public and private keys which can be used to receive or spend <br class="d-none d-xl-block">the cryptocurrency. A wallet can contain multiple public and private key pairs.</p>
                 </div>
@@ -330,7 +330,7 @@
                                             <span class="date">November 2017</span>
                                         </div>
                                         <div class="status completed">
-                                            <span>Crypto Ico <br/>Platform idea</span>
+                                            <span>MBTC <br/>Platform idea</span>
                                         </div>
                                     </div>
                                 </div>
@@ -361,7 +361,7 @@
                                             <span class="date">August 2018</span>
                                         </div>
                                         <div class="status remaining">
-                                            <span>Beta version of <br/>Crypto Ico </span>
+                                            <span>Beta version of <br/>MBTC </span>
                                         </div>
                                     </div>
                                 </div>
@@ -1019,7 +1019,7 @@
                 </div>
                 <p class="content-desc animated" data-animation="fadeInUpShorter" data-animation-delay="0.4s">Have questions? We’re happy to help.</p>
 
-                <p class="font-medium mt-5 animated" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Contact us with any questions regarding Crypto ICO.</p>
+                <p class="font-medium mt-5 animated" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Contact us with any questions regarding MBTC.</p>
             </div>
             <div class="row">
                 <div class="col-lg-5 col-md-12 mx-auto">

@@ -28,7 +28,7 @@
                         </li>
                         <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s">
                             <i class="ti-headphone"></i>
-                            <span>+996507529532</span>
+                            <span><a href="https://wa.me/+996507529532">+996507529532</a></span>
                         </li>
                     </ul>
                 </div>
