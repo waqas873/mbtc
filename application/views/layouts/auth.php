@@ -106,7 +106,7 @@
                     <a class="nav-link" href="<?php echo base_url('publicsite/about');?>">About</a>
                 </li>
                 <li class="nav-item animated" data-animation="fadeInDown" data-animation-delay="1.3s">
-                    <a class="nav-link" href="<?php echo base_url('publicsite/service');?>">Service</a>
+                    <a class="nav-link" href="<?php echo base_url('publicsite/service');?>">Our Mission</a>
                 </li>
                 <li class="nav-item animated" data-animation="fadeInDown" data-animation-delay="1.4s">
                     <a class="nav-link" href="<?php echo base_url('publicsite/contact');?>">Contact</a>
@@ -151,8 +151,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12">
                         <div class="banner-content pt-5">
-                            <h1 class="best-template animated" data-animation="fadeInUpShorter" data-animation-delay="1.5s">Mega Bussiness of Trading Company is modern, clean and <br class="d-none d-xl-block">gradient ui ico most trending <br class="d-none d-xl-block">template of 2019</h1>
-                            <h3 class="mb-4 d-block white animated" data-animation="fadeInUpShorter" data-animation-delay="1.6s">First decentralized marketing platform that allows <br class="d-none d-xl-block">merchants and affiliates.</h3>
+                            <h1 class="best-template animated" data-animation="fadeInUpShorter" data-animation-delay="1.5s">
+                            Welcome to the Mega business of trading company Concept by Congratulations for having taken a right decision in your life.</h1>
+                            <h3 class="mb-4 d-block white animated" data-animation="fadeInUpShorter" data-animation-delay="1.6s">You are joining the Company which is going to create history in the business.<br class="d-none d-xl-block">We are the best.</h3>
                             <!-- <div class="mt-5">
                                 <a href="#token-sale-mobile-app" class="btn btn-lg btn-gradient-purple btn-glow mr-2 animated" data-animation="fadeInUpShorter" data-animation-delay="1.7s">Purchase Token</a>
                                 <a href="#whitepaper" class="btn btn-lg btn-gradient-purple btn-glow animated" data-animation="fadeInUpShorter" data-animation-delay="1.8s">Whitepaper</a>

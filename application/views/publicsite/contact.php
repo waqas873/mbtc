@@ -9,7 +9,7 @@
                 </div>
                 <p class="content-desc animated" data-animation="fadeInUpShorter" data-animation-delay="0.4s">Have questions? We’re happy to help.</p>
 
-                <p class="font-medium mt-5 animated" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Contact us with any questions regarding Crypto ICO.</p>
+                <p class="font-medium mt-5 animated" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Contact us with any questions regarding MBTC.</p>
             </div>
             <div class="row">
                 <div class="col-lg-5 col-md-12 mx-auto">

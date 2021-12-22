@@ -106,7 +106,7 @@
                     <a class="nav-link" href="<?php echo base_url('publicsite/about');?>">About</a>
                 </li>
                 <li class="nav-item animated" data-animation="fadeInDown" data-animation-delay="1.3s">
-                    <a class="nav-link" href="<?php echo base_url('publicsite/service');?>">Service</a>
+                    <a class="nav-link" href="<?php echo base_url('publicsite/service');?>">Our Mission</a>
                 </li>
                 <li class="nav-item animated" data-animation="fadeInDown" data-animation-delay="1.4s">
                     <a class="nav-link" href="<?php echo base_url('publicsite/contact');?>">Contact</a>
@@ -151,8 +151,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12">
                         <div class="banner-content pt-5">
-                            <h1 class="best-template animated" data-animation="fadeInUpShorter" data-animation-delay="1.5s">Mega Bussiness of Trading Company is modern, clean and <br class="d-none d-xl-block">gradient ui ico most trending <br class="d-none d-xl-block">template of 2019</h1>
-                            <h3 class="mb-4 d-block white animated" data-animation="fadeInUpShorter" data-animation-delay="1.6s">First decentralized marketing platform that allows <br class="d-none d-xl-block">merchants and affiliates.</h3>
+                            <h1 class="best-template animated" data-animation="fadeInUpShorter" data-animation-delay="1.5s">
+                            Welcome to the Mega business of trading company Concept by Congratulations for having taken a right decision in your life.</h1>
+                            <h3 class="mb-4 d-block white animated" data-animation="fadeInUpShorter" data-animation-delay="1.6s">You are joining the Company which is going to create history in the business.<br class="d-none d-xl-block">We are the best.</h3>
                             <div class="mt-5">
                                 <a href="<?php echo base_url('sign-in');?>" class="btn btn-lg btn-gradient-purple btn-glow mr-2 animated" data-animation="fadeInUpShorter" data-animation-delay="1.7s">Sign in</a>
                                 <a href="<?php echo base_url('publicsite/signup');?>" class="btn btn-lg btn-gradient-purple btn-glow animated" data-animation="fadeInUpShorter" data-animation-delay="1.8s">Create Account</a>
@@ -186,10 +187,10 @@
         <div class="about">
           <div class="title animated" data-animation="fadeInUpShorter" data-animation-delay="0.2s">
             <img src="assets/public/theme-assets/images/logo.png" alt="Logo">
-            <span class="logo-text">Crypto ICO</span>
+            <span class="logo-text">MBTC</span>
           </div>
           <div class="about-text animated" data-animation="fadeInUpShorter" data-animation-delay="0.3s">
-            <p class="grey-accent2">Crypto Ico is a blockchain platform that allows users to make payments, create and request loans and crowdfund projects.</p>
+            <p class="grey-accent2">Mega Bussiness of Trading Company is a blockchain platform that allows users to make payments, create and request loans and crowdfund projects.</p>
           </div>
           <ul class="social-buttons list-unstyled mb-5">
             <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.4s"><a href="#" title="Facebook" class="btn font-medium"><i class="ti-facebook"></i></a></li>
@@ -204,14 +205,13 @@
         <div class="links">
           <h5 class="title animated" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Useful Links</h5>
           <ul class="useful-links float-left mr-5">
-            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.6s"><a href="#">What is ICO</a></li>
-            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.7s"><a href="#">Solutions</a></li>
-            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.8s"><a href="#">Whitepaper </a></li>
+            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.6s"><a href="<?php echo base_url('publicsite/about');?>">What is MBTC</a></li>
+            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.7s"><a href="<?php echo base_url('publicsite/service');?>">Our Mission</a></li>
           </ul>
           <ul class="useful-links">
-            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s"><a href="#">Roadmap</a></li>
-            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="1.0s"><a href="#">Team</a></li>
-            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="1.1s"><a href="#">Sign in</a></li>
+            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s"><a href="<?php echo base_url('sign-in');?>">Sign In</a></li>
+            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="1.0s"><a href="<?php echo base_url('publicsite/signup');?>">Register</a></li>
+            <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="1.1s"><a href="<?php echo base_url('publicsite/contact');?>">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -219,14 +219,14 @@
         <div class="feed">
           <h5 class="title animated" data-animation="fadeInUpShorter" data-animation-delay="0.8s">Twitter Feed</h5>
           <div class="tweets">
-            <span class="animated" data-animation="fadeInUpShorter" data-animation-delay="1.0s">More about our most powerful theme Crypto ICO : https://t.co/JHBAS345</span>
-            <span class="animated" data-animation="fadeInUpShorter" data-animation-delay="1.2s">More infotamation about CIC Coin : https://t.co/JHSD34JHB</span>
+            <span class="animated" data-animation="fadeInUpShorter" data-animation-delay="1.0s">More about our most Mega Bussiness of Trading Company : <!-- https://t.co/JHBAS345 --></span>
+            <!-- <span class="animated" data-animation="fadeInUpShorter" data-animation-delay="1.2s">More infotamation about CIC Coin : https://t.co/JHSD34JHB</span> -->
           </div>
         </div>
       </div>
     </div>
     <div class="copy-right mx-auto text-center">
-      <span class="copyright">Copyright &copy; 2019, Crypto ICO. Template Designed by <a href="http://pixinvent.com" title="pixinvent" class="white">Pixinvent</a></span>
+      <span class="copyright">Copyright &copy; 2019, Mega Bussiness of Trading Company Powered by <a href="<?php echo base_url();?>" title="pixinvent" class="white">MBTC</a></span>
     </div>
   </div>
 </div>

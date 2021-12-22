@@ -38,18 +38,24 @@
             <div class="heading text-center">
                 <div class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.3s">
                     <h6 class="sub-title">About</h6>
-                    <h2 class="title">What is Crypto ICO</h2>
+                    <h2 class="title">WHAT SERVICES WE OFFER</h2>
                 </div>
                 
-                <p class="content-desc animated" data-animation="fadeInUpShorter" data-animation-delay="0.4s">Crypto ICO aims to disrupt the cryptotrading industry by lowering the barrier <br class="d-none d-xl-block">to creating algorithmic trading models.</p>
+                <p class="content-desc animated" data-animation="fadeInUpShorter" data-animation-delay="0.4s">MBTC aims to disrupt the cryptotrading industry by lowering the barrier <br class="d-none d-xl-block">to creating algorithmic trading models.</p>
             </div>
             <div class="content-area">
                 <div class="row">
                     <div class="col-md-12 col-lg-6 animated" data-animation="fadeInLeftShorter" data-animation-delay="0.5s">
-                        <h4 class="title">We built a platform for <br/> The crypto trading Industry</h4>
-                        <h6 class="pt-4 pb-2">Cryptocurrency exchanges or digital currency exchanges (DCE) are businesses that allow customers to trade cryptocurrencies or digital currencies for other assets.</h6>
-                        <p>Cryptocurrency exchanges or digital currency exchanges (DCE) are businesses that allow customers to trade cryptocurrencies or digital currencies for other assets</p>
-                        <p>Creators of digital currencies are often independent of the DCEs that trade the currency.[6] In one type of system, digital currency providers (DCP), are businesses that keep and administer accounts.</p>
+                        <h4 class="title">TRANSPARENCY</h4>
+                        <h6 class="pt-4 pb-2">Mega business of trading company gives users access to a fully transparent trading platform centered around providing the community with open continuous updates.</h6>
+                        <h4 class="title">SECURE AND SAFE</h4>
+                        <p>With solid industry experience, Mega business of trading company is a highly-secure digital asset exchange. Our suite of advanced tools, including on-chain custody solutions.</p>
+                        <h4 class="title">CUSTOMIZABLE INTERFACE</h4>
+                        <p>Organize your workspace according to your needs: compose your layout, choose between themes, set up notifications and data preferences.</p>
+                        <h4 class="title">ORDER TYPE</h4>
+                        <p>Mega business of trading company offers a suite of order types to give traders the tools they need for every scenario. Discover more about our most advanced Algorithmic orders types.</p>
+                        <h4 class="title">HIRE US</h4>
+                        <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire.</p>
                     </div>
                     <div class="col-md-12 col-lg-6 animated" data-animation="fadeInRightShorter" data-animation-delay="0.5s">
                         <div class="position-relative what-is-crypto-img float-xl-right">
