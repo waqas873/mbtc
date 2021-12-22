@@ -4,11 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="Crypto ICO is a responsive modern &amp; clean cryptocurrency website landing page html with admin dashboard template , specially created for ICO Startup agencies and digital crypto currency investment website.">
-    <meta name="keywords" content="crypto, ico, cryptocurrency, bitcoin, landing, admin, dashboard, template, modern, clean, responsive">
+    <meta name="description" content="Mega Bussiness of Trading Companies is a responsive modern &amp; clean cryptocurrency website , specially created for MBTC Startup agencies and digital crypto currency investment website.">
+    <!-- <meta name="keywords" content="crypto, ico, cryptocurrency, bitcoin, landing, admin, dashboard, template, modern, clean, responsive"> -->
     <meta name="author" content="PIXINVENT">
     <base href="<?php echo base_url();?>">
-    <title>Crypto ICO - Cryptocurrency Website Landing Page HTML Template</title>
+    <title>Mega Bussiness of Trading Companies</title>
     <link rel="apple-touch-icon" href="assets/public/theme-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/public/theme-assets/images/ico/favicon.ico">
     <!--Google Fonts-->
@@ -92,7 +92,7 @@
     <header class="page-header">
       <!-- Horizontal Menu Start-->
       <nav class="main-menu static-top navbar-dark navbar navbar-expand-lg fixed-top mb-1"><div class="container">
-    <a class="navbar-brand animated" data-animation="fadeInDown" data-animation-delay="1s" href="#head-area"><img src="assets/public/theme-assets/images/logo.png" alt="Crypto Logo"/><span class="brand-text"><span class="font-weight-bold">Crypto</span> ICO</span></a>
+    <a class="navbar-brand animated" data-animation="fadeInDown" data-animation-delay="1s" href="#head-area"><img src="assets/public/theme-assets/images/logo.png" alt="Crypto Logo"/><span class="brand-text"><span class="font-weight-bold">MBTC</span> <!-- ICO --></span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -151,7 +151,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12">
                         <div class="banner-content pt-5">
-                            <h1 class="best-template animated" data-animation="fadeInUpShorter" data-animation-delay="1.5s">Crypto ICO is modern, clean and <br class="d-none d-xl-block">gradient ui ico most trending <br class="d-none d-xl-block">template of 2019</h1>
+                            <h1 class="best-template animated" data-animation="fadeInUpShorter" data-animation-delay="1.5s">Mega Bussiness of Trading Company is modern, clean and <br class="d-none d-xl-block">gradient ui ico most trending <br class="d-none d-xl-block">template of 2019</h1>
                             <h3 class="mb-4 d-block white animated" data-animation="fadeInUpShorter" data-animation-delay="1.6s">First decentralized marketing platform that allows <br class="d-none d-xl-block">merchants and affiliates.</h3>
                             <!-- <div class="mt-5">
                                 <a href="#token-sale-mobile-app" class="btn btn-lg btn-gradient-purple btn-glow mr-2 animated" data-animation="fadeInUpShorter" data-animation-delay="1.7s">Purchase Token</a>
