@@ -92,7 +92,7 @@
     <header class="page-header">
       <!-- Horizontal Menu Start-->
       <nav class="main-menu static-top navbar-dark navbar navbar-expand-lg fixed-top mb-1"><div class="container">
-    <a class="navbar-brand animated" data-animation="fadeInDown" data-animation-delay="1s" href="#head-area"><img src="assets/public/theme-assets/images/logo.png" alt="Crypto Logo"/><span class="brand-text"><span class="font-weight-bold">Crypto</span> ICO</span></a>
+    <a class="navbar-brand animated" data-animation="fadeInDown" data-animation-delay="1s" href="#head-area"><img src="assets/public/theme-assets/images/logo.png" alt="Crypto Logo"/><span class="brand-text"><span class="font-weight-bold">MBTC</span> <!-- ICO --></span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -151,7 +151,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12">
                         <div class="banner-content pt-5">
-                            <h1 class="best-template animated" data-animation="fadeInUpShorter" data-animation-delay="1.5s">Crypto ICO is modern, clean and <br class="d-none d-xl-block">gradient ui ico most trending <br class="d-none d-xl-block">template of 2019</h1>
+                            <h1 class="best-template animated" data-animation="fadeInUpShorter" data-animation-delay="1.5s">Mega Bussiness of Trading Company is modern, clean and <br class="d-none d-xl-block">gradient ui ico most trending <br class="d-none d-xl-block">template of 2019</h1>
                             <h3 class="mb-4 d-block white animated" data-animation="fadeInUpShorter" data-animation-delay="1.6s">First decentralized marketing platform that allows <br class="d-none d-xl-block">merchants and affiliates.</h3>
                             <div class="mt-5">
                                 <a href="<?php echo base_url('sign-in');?>" class="btn btn-lg btn-gradient-purple btn-glow mr-2 animated" data-animation="fadeInUpShorter" data-animation-delay="1.7s">Sign in</a>
