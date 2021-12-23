@@ -1029,12 +1029,13 @@
                             <span>Kelley A. Fleming 96 Woodside USA.</span>
                         </li>
                         <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.7s">
-                            <i class="ti-email"></i>
-                            <span>support@mbtc.digital</span>
+                            <a href="mailto:support@mbtc.digital"><i class="ti-email"></i>
+                            <span>support@mbtc.digital</span></a>
                         </li>
                         <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.8s">
+                            <a href="https://www.instagram.com/invites/contact/?i=f7qwxypr9cto&utm_content=niozimc" target="_blank">
                             <i class="ti-comment-alt"></i>
-                            <span>Join us on Telegram</span>
+                            <span>Join us on Instagram</span></a>
                         </li>
                         <li class="animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s">
                             <i class="ti-headphone"></i>
