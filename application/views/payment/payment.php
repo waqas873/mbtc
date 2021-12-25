@@ -1,4 +1,3 @@
-
 <style type="text/css">
 .all_errors{
   color: #FF934A;
@@ -50,6 +49,22 @@
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
+
+    <div class="row mb-2 currency_images">
+      <div class="col-sm-3">
+        <img src="assets/images/currencies/perfect_money.png" class="perfect_money">
+      </div>
+      <div class="col-sm-3">
+        <img src="assets/images/currencies/tether.jpg">
+      </div>
+      <div class="col-sm-3">
+        <img src="assets/images/currencies/payoneer.png">
+      </div>
+      <div class="col-sm-3">
+        <img src="assets/images/currencies/bitcoin.jpg">
+      </div>
+    </div><!-- /.row -->
+
   </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->

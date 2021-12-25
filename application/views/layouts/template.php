@@ -141,7 +141,20 @@ margin-bottom: 15px !important;
 .brand-link.logo-img{
   background: linear-gradient(90deg, #00338C,#26718F);
 }
-
+.currency_images{
+  margin-top: 20px;
+  text-align: center;
+}
+.currency_images img {
+    width: 95%;
+    height: 120px;
+    margin-bottom: 15px;
+}
+.perfect_money{
+    border: 1px solid #FF5F2B;
+    padding: 3px;
+    transform: scale(1.1);
+}
 /*background: linear-gradient(180deg, #1A4C8B,#26718F);*/
 </style>
 </head>
