@@ -112,45 +112,6 @@ color: white;
 
     <div class="row">
       <div class="col-md-12">
-        <div class="my_link">
-        <!-- <h1 class="page-title" style="font-weight: inherit;color: white;padding: 15px 10px;font-size: 20px;">
-          My Referral Link</h1> -->
-          
-          <p><span class="lsl">Left Side Link: </span>
-            <?php echo base_url('publicsite/signup/'.$user_dl['sponsor_code'].'/left');?>
-            <a href="javascript::" onclick="CopyToClipboard('copy_link')" class="btn btn-warning btn-xs" style="position: relative;top: -1px;left: 5px;">Copy Link
-            </a>
-          </p>
-
-          <p><span class="lsl">Right Side Link: </span>
-            <?php echo base_url('publicsite/signup/'.$user_dl['sponsor_code'].'/right');?>
-            <a href="javascript::" onclick="CopyToClipboard('copy_link')" class="btn btn-warning btn-xs" style="position: relative;top: -1px;left: 5px;">Copy Link
-            </a>
-          </p>
-        
-        </div>
-      </div>
-    </div>
-    <script type="text/javascript">
-      function CopyToClipboard(containerid) {
-          if (document.selection) { 
-              var range = document.body.createTextRange();
-              range.moveToElementText(document.getElementById(containerid));
-              range.select().createTextRange();
-              document.execCommand("copy"); 
-
-          } else if (window.getSelection) {
-              var range = document.createRange();
-              range.selectNode(document.getElementById(containerid));
-              window.getSelection().addRange(range);
-              document.execCommand("copy");
-              alert("Link copied");
-          }
-      }
-    </script>
-
-    <div class="row">
-      <div class="col-md-12">
         <div class="timer">
         <h1 class="page-title" style="font-weight: inherit;color: white;padding: 15px 10px;font-size: 20px;"> User Dashboard
             <small>Total Earnings, Available Balance, Withdraws, Team Members</small>
@@ -435,6 +396,45 @@ color: white;
 
       <?php } ?>
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="my_link">
+        <!-- <h1 class="page-title" style="font-weight: inherit;color: white;padding: 15px 10px;font-size: 20px;">
+          My Referral Link</h1> -->
+          
+          <p><span class="lsl">Left Side Link: </span>
+            <?php echo base_url('publicsite/signup/'.$user_dl['sponsor_code'].'/left');?>
+            <a href="javascript::" onclick="CopyToClipboard('copy_link')" class="btn btn-warning btn-xs" style="position: relative;top: -1px;left: 5px;">Copy Link
+            </a>
+          </p>
+
+          <p><span class="lsl">Right Side Link: </span>
+            <?php echo base_url('publicsite/signup/'.$user_dl['sponsor_code'].'/right');?>
+            <a href="javascript::" onclick="CopyToClipboard('copy_link')" class="btn btn-warning btn-xs" style="position: relative;top: -1px;left: 5px;">Copy Link
+            </a>
+          </p>
+        
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function CopyToClipboard(containerid) {
+          if (document.selection) { 
+              var range = document.body.createTextRange();
+              range.moveToElementText(document.getElementById(containerid));
+              range.select().createTextRange();
+              document.execCommand("copy"); 
+
+          } else if (window.getSelection) {
+              var range = document.createRange();
+              range.selectNode(document.getElementById(containerid));
+              window.getSelection().addRange(range);
+              document.execCommand("copy");
+              alert("Link copied");
+          }
+      }
+    </script>
 
 <?php if(isset($packages) && !empty($packages)) { ?>
     <div class="row">

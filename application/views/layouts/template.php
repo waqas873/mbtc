@@ -150,7 +150,10 @@ margin-bottom: 15px !important;
     height: 120px;
     margin-bottom: 15px;
 }
-.perfect_money{
+.currency_icons{
+  cursor: pointer;
+}
+.currency_icons.active{
     border: 1px solid #FF5F2B;
     padding: 3px;
     transform: scale(1.1);

@@ -52,16 +52,16 @@
 
     <div class="row mb-2 currency_images">
       <div class="col-sm-3">
-        <img src="assets/images/currencies/perfect_money.png" class="perfect_money-----">
+        <img src="assets/images/currencies/perfect_money.png" class="currency_icons">
       </div>
       <div class="col-sm-3">
-        <img src="assets/images/currencies/tether.jpg">
+        <img src="assets/images/currencies/tether.jpg" class="currency_icons">
       </div>
       <div class="col-sm-3">
-        <img src="assets/images/currencies/payoneer.png">
+        <img src="assets/images/currencies/payoneer.png" class="currency_icons">
       </div>
       <div class="col-sm-3">
-        <img src="assets/images/currencies/bitcoin.jpg">
+        <img src="assets/images/currencies/bitcoin.jpg" class="currency_icons">
       </div>
     </div><!-- /.row -->
 
@@ -197,6 +197,11 @@ $(document).ready(function(){
 
     $(document).on("click","#pay_now",function(){
         $("#myModal").modal();
+    });
+
+    $(document).on("click",".currency_icons",function(e){
+      $(".currency_icons").removeClass("active");
+      $(this).toggleClass('active');
     });
 
     $('#withdraw_form').validate();
