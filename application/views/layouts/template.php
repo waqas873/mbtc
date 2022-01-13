@@ -526,6 +526,24 @@ height: 16px;top: 30px; background-color: <?php echo (if_package_buy($this->sess
               </li>
             </ul>
           </li>
+          <li class="nav-item <?php echo ( isset($this->selected_tab) && ($this->selected_tab=="internal_transfers" || $this->selected_tab=="internal_transfers" || $this->selected_tab=="internal_transfers") )?"menu-open":""; ?>">
+            <a href="#" class="nav-link <?php echo ( isset($this->selected_tab) && ($this->selected_tab=="internal_transfers" || $this->selected_tab=="internal_transfers" || $this->selected_tab=="internal_transfers") )?"active":""; ?>">
+              <!-- <i class="nav-icon fas fa-copy"></i> -->
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Transfers
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo base_url('internal_transfers'); ?>" class="nav-link <?php echo (isset($this->selected_tab) && $this->selected_tab=="internal_transfers")?"active":""; ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Internal Transfers</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="<?php echo base_url("news/user_index/"); ?>" class="nav-link <?php echo (isset($this->selected_tab) && $this->selected_tab=="news")?"active":""; ?>">
               <i class="nav-icon fas fa-table"></i>
