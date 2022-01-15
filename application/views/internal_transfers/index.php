@@ -87,13 +87,15 @@
                   </thead>
                   <tbody>
                     <?php 
-                      if(!empty($result)){
-                        foreach($result as $key=>$value){
+                      if(!empty($internal_transfers)){
+                        foreach($internal_transfers as $key=>$value){
                     ?>
                     <tr class="table_text_shadow">
                       <td class="text_center"><?php echo $key+1; ?></td>
-                      <td class="text_center">$<?php echo $value['de_earning']; ?></td>
-                      <td class="text_center"><?php echo $value['de_date']; ?></td>
+                      <td class="text_center"><?php echo $value['from_wallet']; ?></td>
+                      <td class="text_center"><?php echo $value['to_wallet']; ?></td>
+                      <td class="text_center">$<?php echo $value['amount']; ?></td>
+                      <td class="text_center"><?php echo $value['created_at']; ?></td>
                     </tr>
                     <?php } } ?>
                   </tbody>
@@ -159,6 +161,10 @@ $(document).ready(function(){
         dataType: 'JSON',
         success: function (data) {
           if(data.response){
+            swal("Amount transferred successfully.")
+              .then((value) => {
+                location.reload(); 
+            });
           }
           else{
             swal({

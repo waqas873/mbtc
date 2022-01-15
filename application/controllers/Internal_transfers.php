@@ -49,12 +49,30 @@ class Internal_transfers extends CI_Controller
         $data['response'] = false;
         $formData = $this->input->post();
         $checkAmount = json_encode($formData);
-        $this->form_validation->set_rules('privacy','privacy','required|trim|callback_check_amount['.$checkAmount.']');
+        $this->form_validation->set_rules('amount','amount','required|trim|callback_check_amount['.$checkAmount.']');
         if($this->form_validation->run()===TRUE){
         	$where = "wallet_user_id = '".$this->user_id."'";
 	        $result = $this->wallets->get_where('*', $where, true, '' , '', '');
 	        $wallet_balance = round($result[0]['wallet_balance'] , 2);
-            $id = $this->internal_transfers->save($formData);
+
+            $where = "user_id = '".$this->user_id."'";
+            $result = $this->user_balance->get_where('*', $where, true, '' , '', '');
+            $user_balance = round($result[0]['user_balance'] , 2);
+
+            $usb = $user_balance - $formData['amount'];
+            $update = ['user_balance'=>$usb];
+            $this->user_balance->update_by('user_id', $this->user_id, $update);
+
+            $uwb = $wallet_balance + $formData['amount'];
+            $update = ['wallet_balance'=>$uwb];
+            $this->wallets->update_by('wallet_user_id', $this->user_id, $update);
+            
+            $save = [];
+            $save['user_id'] = $this->user_id;
+            $save['from_wallet'] = "Earning Wallet";
+            $save['to_wallet'] = "Main Wallet";
+            $save['amount'] = $formData['amount'];
+            $id = $this->internal_transfers->save($save);
             $data['response'] = true;
         }
         else{
