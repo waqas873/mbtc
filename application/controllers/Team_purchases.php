@@ -53,27 +53,46 @@ class Team_purchases extends CI_Controller
 	public function index($status = '')
 	{
 	    $data = [];
-        // $where = "";
-        // $joins = array(
-        // 	    '0' => array('table_name' => 'users users',
-	       //          'join_on' => ' users.id = user_packages.up_user_id ',
-	       //          'join_type' => 'left'
-	       //      ),
-	       //      '1' => array('table_name' => 'packages packages',
-	       //          'join_on' => ' packages.package_id = user_packages.up_package_id ',
-	       //          'join_type' => 'left'
-	       //      )
-        // );
-        // $from_table = "user_packages user_packages";
-        // $select_from_table = 'user_packages.*,packages.*,users.*';
-        // $data['packages'] = $this->user_packages->get_by_join($select_from_table, $from_table, $joins, $where, 'up_id','DESC', '', '', '', '', '', '',true);
-        //debug($data['packages'],true);
+	    $parent_id = $this->session->userdata('id');
+		$where = "parent_id = '".$parent_id."'";
+		$users_ids = $this->users->get_where('id', $where, true, '' , '', '');
+
+        $all_data = array();
+        $condition = (!empty($users_ids))?true:false;
+        $ii = 0;
+        while($condition===true){
+        	$arr_push = array();
+        	foreach($users_ids as $user_id){
+
+        		$user_id = ($ii==0)?$user_id['id']:$user_id;
+
+        		$where = "id = '".$user_id."'";
+		        $user_detail = $this->users->get_where('*', $where, true, '' , '', '');
+		        $user_detail = $user_detail[0];
+		        $parent_id = $user_detail['referral_id'];
+		        $parent_user = user_info($parent_id);
+		        $user_detail['parent_name'] = (!empty($parent_user))?$parent_user['fullname']:'Self';
+		        $all_data[] = $user_detail;
+
+                $where = "parent_id = '".$user_id."'";
+				$child_users = $this->users->get_where('id', $where, true, '' , '', '');
+				foreach($child_users as $user){
+                    array_push($arr_push,$user['id']);
+				}
+        	}
+        	$users_ids = $arr_push ;
+        	(empty($users_ids))?$condition=false:'';
+        $ii++;	
+        }
+        $data['users'] = array_reverse($all_data);
+        $data['packages'] = $this->packages->get_all();
 	  	$this->load->view("team_purchases/index",$data);
 	}
 	
 	public function process_add()
 	{	
 		$data = array();
+		debug($this->input->post() , true);
 		if($this->input->post()){
 			$user_id = $this->session->userdata('id');
 			$package_id = $this->input->post('package_id');

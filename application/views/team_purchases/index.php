@@ -116,21 +116,57 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Transfer Amount</h4>
+          <h4 class="modal-title">Purchase Package for Team Member</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <form id="addForm">
+            <form id="addForm" action="<?php echo base_url('team_purchases/process_add');?>" method="post">
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label for="first_name">You have <span class="user_balance">$<?php echo $user_balance;?></span> in your earned wallet to transfer in your main wallet.</label>
-                  <input type="number" name="amount" class="form-control" placeholder="Enter amount" required>
-                  <div class="all_errors amount_error"></div>
+                  <label for="user_id">Select Team Member</label>
+                  <select name="id" class="form-control" required="">
+                    <option value="">Select Member</option>
+                    <?php 
+                    if(!empty($users)){
+                      foreach ($users as $key => $value) {
+                    ?>
+                    <option value="<?php echo $value['id'];?>"><?php echo $value['fullname'].' ('.$value['username'].')';?></option>
+                    <?php
+                      }
+                    }
+                    ?>
+                  </select>
+                  <div class="all_errors user_id_error"></div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-info yellow-btns">Transfer</button>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="package_id">Select Package</label>
+                  <select name="package_id" class="form-control" required="">
+                    <option value="">Select Package</option>
+                    <?php 
+                    if(!empty($packages)){
+                      foreach ($packages as $key => $value) {
+                    ?>
+                    <option value="<?php echo $value['package_id'];?>"><?php echo $value['package_name'].' ($'.$value['package_min_amount'].' - $'.$value['package_max_amount'].')';?></option>
+                    <?php
+                      }
+                    }
+                    ?>
+                  </select>
+                  <div class="all_errors package_id_error"></div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="up_package_amount">Select Team Member</label>
+                  <input type="number" name="up_package_amount" class="form-control" placeholder="Enter amount" required>
+                  <div class="all_errors up_package_amount_error"></div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info yellow-btns">Purchase Package</button>
             </form>
         </div>
         <div class="modal-footer justify-content-between">
@@ -148,39 +184,40 @@ $(document).ready(function(){
     $("#myModal").modal('show');
   });
 
-  $(document).on('submit', '#addForm', function(e){
-    e.preventDefault();
-    var obj = $(this);
-    $('.all_errors').empty();
-    var formData = obj.serializeArray();
-    $.LoadingOverlay("show");
-    $.ajax({
-        url: base_url+'/internal_transfers/process_add',
-        type: 'POST',
-        data: formData,
-        dataType: 'JSON',
-        success: function (data) {
-          if(data.response){
-            swal("Amount transferred successfully.")
-              .then((value) => {
-                location.reload(); 
-            });
-          }
-          else{
-            swal({
-              title: "Warning!",
-              text: "Please enter valid amount for transfer.",
-              icon: "error",
-              button: "OK",
-            });
-          }
-        },
-        complete: function(){
-          $.LoadingOverlay("hide");
-        }
-    });
-  });
+  // $(document).on('submit', '#addForm', function(e){
+  //   e.preventDefault();
+  //   var obj = $(this);
+  //   $('.all_errors').empty();
+  //   var formData = obj.serializeArray();
+  //   $.LoadingOverlay("show");
+  //   $.ajax({
+  //       url: base_url+'/internal_transfers/process_add',
+  //       type: 'POST',
+  //       data: formData,
+  //       dataType: 'JSON',
+  //       success: function (data) {
+  //         if(data.response){
+  //           swal("Amount transferred successfully.")
+  //             .then((value) => {
+  //               location.reload(); 
+  //           });
+  //         }
+  //         else{
+  //           swal({
+  //             title: "Warning!",
+  //             text: "Please enter valid amount for transfer.",
+  //             icon: "error",
+  //             button: "OK",
+  //           });
+  //         }
+  //       },
+  //       complete: function(){
+  //         $.LoadingOverlay("hide");
+  //       }
+  //   });
+  // });
 
-    $('#datatable').DataTable({});
+  $('#datatable').DataTable({});
+
 });
 </script>
