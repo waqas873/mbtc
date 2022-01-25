@@ -79,21 +79,21 @@
                   <thead>
                   <tr>
                     <th class="text_center">Sr No</th>
-                    <th class="text_center">From Wallet</th>
-                    <th class="text_center">To Wallet</th>
-                    <th class="text_center">Amount Transfered</th>
+                    <th class="text_center">Team Member</th>
+                    <th class="text_center">Package Name</th>
+                    <th class="text_center">Package Amount</th>
                     <th class="text_center">Date</th>
                   </tr>
                   </thead>
                   <tbody>
                     <?php 
-                      if(!empty($internal_transfers)){
-                        foreach($internal_transfers as $key=>$value){
+                      if(!empty($team_purchases)){
+                        foreach($team_purchases as $key=>$value){
                     ?>
                     <tr class="table_text_shadow">
                       <td class="text_center"><?php echo $key+1; ?></td>
-                      <td class="text_center"><?php echo $value['from_wallet']; ?></td>
-                      <td class="text_center"><?php echo $value['to_wallet']; ?></td>
+                      <td class="text_center"><?php echo $value['fullname']; ?></td>
+                      <td class="text_center"><?php echo $value['package_name']; ?></td>
                       <td class="text_center">$<?php echo $value['amount']; ?></td>
                       <td class="text_center"><?php echo $value['created_at']; ?></td>
                     </tr>
@@ -161,7 +161,7 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label for="up_package_amount">Select Team Member</label>
+                  <label for="up_package_amount">Enter Amount</label>
                   <input type="number" name="up_package_amount" class="form-control" placeholder="Enter amount" required>
                   <div class="all_errors up_package_amount_error"></div>
                 </div>
