@@ -393,8 +393,8 @@ height: 16px;top: 30px; background-color: <?php echo (if_package_buy($this->sess
           </li>
 
           <?php if ($this->session->userdata('role') == "user") { ?>
-          <li class="nav-item <?php echo ( isset($this->selected_tab) && ($this->selected_tab=="all_users" || $this->selected_tab=="right_users" || $this->selected_tab=="left_users" || $this->selected_tab=="add_user" || $this->selected_tab=="tree_view") )?"menu-open":""; ?>">
-            <a href="#" class="nav-link <?php echo ( isset($this->selected_tab) && ($this->selected_tab=="all_users" || $this->selected_tab=="right_users" || $this->selected_tab=="left_users" || $this->selected_tab=="add_user" || $this->selected_tab=="tree_view") )?"active":""; ?>">
+          <li class="nav-item <?php echo ( isset($this->selected_tab) && ($this->selected_tab=="all_users" || $this->selected_tab=="right_users" || $this->selected_tab=="left_users" || $this->selected_tab=="add_user" || $this->selected_tab=="tree_view" || $this->selected_tab=="team_purchases") )?"menu-open":""; ?>">
+            <a href="#" class="nav-link <?php echo ( isset($this->selected_tab) && ($this->selected_tab=="all_users" || $this->selected_tab=="right_users" || $this->selected_tab=="left_users" || $this->selected_tab=="add_user" || $this->selected_tab=="tree_view" || $this->selected_tab=="team_purchases") )?"active":""; ?>">
               <i class="nav-icon fas fa-tree"></i>
               <!-- <i class="fa fa-group fa_icon"></i> -->
               <p>
@@ -431,6 +431,12 @@ height: 16px;top: 30px; background-color: <?php echo (if_package_buy($this->sess
                 <a href="<?php echo base_url("User/tree_view"); ?>" class="nav-link <?php echo (isset($this->selected_tab) && $this->selected_tab=="tree_view")?"active abcdef":""; ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tree View</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url("team_purchases"); ?>" class="nav-link <?php echo (isset($this->selected_tab) && $this->selected_tab=="team_purchases")?"active abcdef":""; ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Team Purchases</p>
                 </a>
               </li>
             </ul>
