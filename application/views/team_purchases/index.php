@@ -126,7 +126,7 @@
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="user_id">Select Team Member</label>
-                  <select name="id" class="form-control" required="">
+                  <select name="id" class="form-control select2" required="">
                     <option value="">Select Member</option>
                     <?php 
                     if(!empty($users)){
