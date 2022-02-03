@@ -305,7 +305,7 @@ class Team_purchases extends CI_Controller
         $tp = [];
         $tp['purchased_by'] = $logged_in_user;
         $tp['up_id'] = $pkg_detail['up_id'];
-        $tp['amount'] = $up_package_amount;
+        $tp['amount'] = $amount_update;
         $tp['type'] = 2;
         $this->team_purchases->save($tp);
 
