@@ -12,6 +12,7 @@ class Payment extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('Users_model' , 'users');
 		$this->load->model('Deposit_histories_model','deposit_histories');
+		$this->load->model('paymen_history_model','paymen_history');
 		//$this->load->helper('Payment');
 
 		date_default_timezone_set("America/Los_Angeles");
@@ -26,6 +27,46 @@ class Payment extends CI_Controller {
 			redirect('user/user_dashboard'); exit;
 		}
 		$this->load->view('payment/payment',$data);
+	}
+
+	public function processUsdt()
+	{
+		$data = [];
+		$user_id = $this->session->userdata('id');
+		if(!isset($_FILES['transfer_proof']['tmp_name'])){
+			$this->session->set_flashdata('error_message', 'Invalid request to upload your proof.');
+			redirect('payment/add');
+		}
+
+        if(isset($_FILES['transfer_proof']['tmp_name']) && !empty($_FILES['transfer_proof']['name'])){
+
+            if(!is_dir(BASEPATH.'../assets/payments')){
+                mkdir('./assets/payments', 0777, true) ;
+            } 
+            $config['upload_path']   = BASEPATH.'../assets/payments/';
+            $config['allowed_types'] = 'jpeg|jpg|png|pdf'; 
+            $config['max_size']      = 140000; 
+            $config['max_width']     = 4000;
+            $config['max_height']    = 4000;  
+            $this->load->library('upload',$config);
+            $this->load->initialize($config);
+
+            if(!$this->upload->do_upload('transfer_proof')){
+            	$error_message = $this->upload->display_errors();
+                $this->session->set_flashdata('error_message',$error_message);
+                redirect('payment/add');
+            }
+            else{
+                $uploaded_image = $this->upload->data();
+                $data['transfer_proof'] = $uploaded_image['file_name'];
+                $data['user_id'] = $user_id;
+                $data['refference_number'] = "DEP".rand(1,1000000000);
+                $data['payment_method'] = "USDT";
+                $this->paymen_history->save($data);
+                $this->session->set_flashdata('success_message', 'Your proof has been uploaded successfully.Kindly wait for admin approval.');
+			    redirect('payment/add');
+            }
+        }
 	}
 
 	public function confirm_pay($inv_id='')

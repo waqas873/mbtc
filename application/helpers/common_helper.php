@@ -124,7 +124,7 @@ function getUserDepositHistory($user_id)
 {
     $CI =& get_instance();
     $CI->load->model('paymen_history_model' , 'paymen_history');
-    $where = "user_id = '".$user_id."' AND status=1";
+    $where = "user_id = '".$user_id."'";
     $result = $CI->paymen_history->get_where('*', $where, true, 'id DESC', '', '');
     return $result;
 }
