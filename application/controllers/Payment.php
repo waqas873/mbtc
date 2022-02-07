@@ -11,6 +11,7 @@ class Payment extends CI_Controller {
 		$this->selected_tab = "payment";
 		$this->load->library('form_validation');
 		$this->load->model('Users_model' , 'users');
+		$this->load->model('wallets_model' , 'wallets');
 		$this->load->model('Deposit_histories_model','deposit_histories');
 		$this->load->model('paymen_history_model','paymen_history');
 		//$this->load->helper('Payment');
@@ -68,6 +69,72 @@ class Payment extends CI_Controller {
             }
         }
 	}
+
+	public function deposits()
+	{
+		if(!$this->session->userdata('id')){
+			redirect('user/user_dashboard'); exit;
+		}
+		if($this->session->userdata("role") != "admin"){
+			redirect("sign-in");
+		}
+		$data = [];
+        $this->layout = "admin";
+        $this->selected_tab = "deposits";
+        $where = "paymen_history.id > 0";
+        $joins = array(
+    	    '0' => array('table_name' => 'users users',
+                'join_on' => ' users.id = paymen_history.user_id ',
+                'join_type' => 'left'
+            )
+        );
+        $from_table = "paymen_history paymen_history";
+        $select_from_table = "paymen_history.*,users.fullname";
+        $data['payments'] = $this->paymen_history->get_by_join($select_from_table, $from_table, $joins, $where, 'id','DESC', '', '', '', '', '', '',true);
+		$this->load->view('payment/deposits',$data);
+	}
+
+	public function transferAmount()
+    {
+        $data = [];
+        $this->layout = " ";
+        if(!$this->input->is_ajax_request()){
+           exit('No direct script access allowed');
+        }
+        $data['response'] = false;
+        $this->form_validation->set_rules('id','','required|trim');
+        $this->form_validation->set_rules('amount','amount','required|trim|numeric');
+        if($this->form_validation->run()===TRUE){
+            $formData = $this->input->post();
+            $id = $formData['id'];
+            $amount = $formData['amount'];
+
+            $where = "id = '".$id."'";
+            $result = $this->paymen_history->get_where('*', $where, true, '' , '', '');
+            $user_id = $result[0]['user_id'];
+
+            if($amount > 0){
+                $where = "wallet_user_id = '".$user_id."'";
+                $result = $this->wallets->get_where('*', $where, true, '' , '', '');
+                if(!empty($result)){
+                    $update = [];
+                    $update['wallet_balance'] = $amount+$result[0]['wallet_balance'];
+                    $this->wallets->update_by('wallet_id', $result[0]['wallet_id'],$update);
+
+                    $update = [];
+                    $update['status'] = 1;
+                    $update['amount'] = $amount;
+                    $this->paymen_history->update_by('id', $id,$update);
+                    $data['response'] = true;
+                }
+            }
+        }
+        else{
+            $data['errors'] = all_errors($this->form_validation->error_array());
+        }
+        //debug($data , true);
+        echo json_encode($data);
+    }
 
 	public function confirm_pay($inv_id='')
 	{

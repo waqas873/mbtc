@@ -310,6 +310,12 @@
               <p>Users Management</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url("payment/deposits"); ?>" class="nav-link <?php echo (isset($this->selected_tab) && $this->selected_tab=="deposits")?"active":""; ?>">
+              <i class="nav-icon fas fa-th"></i>
+              <p>Payments</p>
+            </a>
+          </li>
           <!-- <li class="nav-item">
             <a href="<?php echo base_url('payment/admin_history'); ?>" class="nav-link <?php echo (isset($this->selected_tab) && $this->selected_tab=="payment_history")?"active  abcdef":""; ?>">
               <i class="nav-icon fas fa-th"></i>
