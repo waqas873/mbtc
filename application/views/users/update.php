@@ -116,6 +116,13 @@
 					<?php echo form_error('wallet_address');?>
 					</div>
 				</div>
+        <div class="form-group">
+          <div class="col-md-6">
+              <label class="control-label">USDT Address:<span style="color: #143148;">*</span></label>
+            <input class="form-control placeholder-no-fix" type="text" value="<?php echo (set_value('usdt_wallet_address')) ? set_value('usdt_wallet_address') : (isset($data['usdt_wallet_address']) ? $data['usdt_wallet_address'] : ''); ?>" autocomplete="off" placeholder="Enter your USDT address" name="usdt_wallet_address"  required />
+          <?php echo form_error('usdt_wallet_address');?>
+          </div>
+        </div>
 				<div class="form-group">
 					<div class="col-md-6">
 						<label class="control-label">Date of Birth:<span style="color: #143148;">*</span></label>
