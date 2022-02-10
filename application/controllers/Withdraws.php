@@ -43,7 +43,7 @@ class Withdraws extends CI_Controller
 		$this->load->model('Withdraws_model','withdraws');
 		$this->load->model('Withdraw_limits_model','withdraw_limits');
 
-		date_default_timezone_set("America/Los_Angeles");
+		date_default_timezone_set('Europe/London');
 	}
 	
 	/** 
@@ -111,13 +111,23 @@ class Withdraws extends CI_Controller
 		 //    }
 
 			$withdraw_amount = $this->input->post('withdraw_amount');
+			$payment_method = $this->input->post('payment_method');
+			if(empty($payment_method)){
+				$this->session->set_flashdata('error_message', "Please select a payment method.");
+				redirect('withdraws/index/'); exit;
+			}
 
 			$user_info = user_info($user_id);
-			if(empty($user_info['wallet_address'])){
+			if($payment_method=="Perfect Money" && empty($user_info['wallet_address'])){
 				$link = base_url('user_childs/update');
-                $this->session->set_flashdata('error_message', "Please first provide your PM wallet address and then request for withdraw.Go to profile settings for adding PM wallet address.");
+				$this->session->set_flashdata('error_message', "Please first provide your PM wallet address and then request for withdraw.Go to profile settings for adding PM wallet address.");
 				redirect('withdraws/index/'); exit;
-		    }
+			}
+			if($payment_method=="USDT" && empty($user_info['usdt_wallet_address'])){
+				$link = base_url('user_childs/update');
+				$this->session->set_flashdata('error_message', "Please first provide your USDT wallet address and then request for withdraw.Go to profile settings for adding USDT wallet address.");
+				redirect('withdraws/index/'); exit;
+			}
 
 			$where2 = "wl_id > 0";
 		    $limits = $this->withdraw_limits->get_where('*', $where2, true, 'wl_id DESC', 1, '');
@@ -151,10 +161,12 @@ class Withdraws extends CI_Controller
 					$no_of_hours = round(abs($today-$date1)/60/60);
 
                     if($no_of_hours >= 24){
+
                         $data['user_id'] = $user_id;
 		            	$data['withdraw_amount'] = $withdraw_amount;
 		            	$data['withdraw_fees'] = ((WITHDRAW_FEE/100)*$withdraw_amount);
 		            	$data['requested_on'] = date('Y-m-d H:i:s');
+		            	$data['payment_method'] = $payment_method;
 		            	$this->withdraws->save($data);
 		            	$this->session->set_flashdata('success_message', 'Your request under review.Maximum time 24 hours.');
                     }
@@ -169,6 +181,7 @@ class Withdraws extends CI_Controller
 	            	$data['withdraw_amount'] = $withdraw_amount;
 	            	$data['withdraw_fees'] = ((WITHDRAW_FEE/100)*$withdraw_amount);
 	            	$data['requested_on'] = date('Y-m-d H:i:s');
+	            	$data['payment_method'] = $payment_method;
 	            	if($withdraw_id = $this->withdraws->save($data)){
 	            		$this->session->set_flashdata('success_message', 'Your withdraw request has been submitted successfully.Please wait for admin approvel.');
 	            	}

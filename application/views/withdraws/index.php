@@ -49,7 +49,8 @@
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
-
+   
+   <?php if($this->session->userdata('role')!="admin") { ?>
     <div class="row mb-2 currency_images">
       <div class="col-sm-3">
         <img src="assets/images/currencies/perfect_money.png" class="currency_icons">
@@ -64,6 +65,7 @@
         <img src="assets/images/currencies/bitcoin.jpg" class="currency_icons">
       </div>
     </div><!-- /.row -->
+  <?php } ?>
 
   </div><!-- /.container-fluid -->
 </div>
@@ -103,6 +105,7 @@
                   <?php if(isset($this->selected_tab) && $this->selected_tab == "pending_withdraws") { ?>
                     <th>User Balance</th>
                   <?php } ?>
+                  <th>Payment Method</th>
                   <th>Request Date</th>
                     <th>Status</th>
                     <?php if($this->session->userdata('role')=="admin") { ?>
@@ -120,10 +123,21 @@
                   ?>
                   <tr class="table_text_shadow">
                     <td><?php echo $index; ?></td>
-                      <?php if($this->session->userdata('role')=="admin") { ?>
+                    <?php 
+                    if($this->session->userdata('role')=="admin") {
+                    ?>
                           <td><?php echo ucwords($Withdraw['fullname']); ?></td>
                           <td><?php echo $Withdraw['email']; ?></td>
-                          <td><?php echo $Withdraw['wallet_address']; ?></td>
+                          <td>
+                            <?php 
+                            if($Withdraw['payment_method']=="USDT"){
+                              echo $Withdraw['usdt_wallet_address'];
+                            }
+                            else{
+                              echo $Withdraw['wallet_address']; 
+                            }
+                            ?>
+                            </td>
                       <?php } ?>
                   <td><?php echo "$".$Withdraw['withdraw_amount']; ?></td>
                   <td><?php echo "$".$Withdraw['withdraw_fees']; ?></td>
@@ -131,6 +145,11 @@
                     <?php if(isset($this->selected_tab) && $this->selected_tab == "pending_withdraws") { ?>
                       <td><?php echo "$".$Withdraw['user_balance']; ?></td>
                     <?php } ?>
+                      <td>
+                          <?php 
+                              echo (!empty($Withdraw['payment_method']))?$Withdraw['payment_method']:'Perfect Money';
+                          ?>
+                      </td>
                       <td>
                           <?php 
                               $datetime = explode(' ', $Withdraw['requested_on']);
@@ -203,6 +222,17 @@
                   <label for="first_name">Please enter your desire amount for withdraw here.</label>
                   <input type="number" name="withdraw_amount" class="form-control" placeholder="Enter amount" required>
                   <div class="all_errors first_name_error"></div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="first_name">Select Payment Method</label>
+                  <select name="payment_method" class="form-control" required>
+                    <option value="">Select here</option>
+                    <option value="Perfect Money">Perfect Money</option>
+                    <option value="USDT">USDT</option>
+                  </select>
+                  <div class="all_errors payment_method_error"></div>
                 </div>
               </div>
               <button type="submit" class="btn btn-info yellow-btns">Send Request</button>
